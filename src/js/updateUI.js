@@ -1,6 +1,7 @@
 const cardsEl = document.querySelector('.cards');
 
 export const createCountries = (countries) => {
+    cardsEl.innerHTML = '';
     countries.forEach((country) => {
         const flag = country.flags.svg
         const commonName = country.name.common;
