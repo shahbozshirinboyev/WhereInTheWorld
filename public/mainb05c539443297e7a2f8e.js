@@ -7,7 +7,6 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/css/main.css":
@@ -16,6 +15,7 @@
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://whereintheworld/./src/css/main.css?");
 
 /***/ }),
@@ -26,6 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _updateUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updateUI */ \"./src/js/updateUI.js\");\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ \"./src/js/request.js\");\nconst searchFormEl = document.querySelector('.search');\r\n\r\nsearchFormEl.search.addEventListener(\"input\", () => {\r\n    const searchValue = searchFormEl.search.value.toLowerCase();\r\n    const cardsItem = document.querySelectorAll('.cards__item');\r\n    const cardsTitle = document.querySelectorAll('.cards__title');\r\n    cardsTitle.forEach((title, i) => {\r\n        if(title.textContent.toLowerCase().includes(searchValue)){\r\n            cardsItem[i].style.display = 'block'\r\n        }else{\r\n            cardsItem[i].style.display = 'none'\r\n        }\r\n    })\r\n});\r\n\r\nconst searchSelect = document.querySelectorAll('.search__select-list li');\r\nconst searchSelectSpan = document.querySelector('.search__select span');\r\n\r\n\r\n\r\n\r\nsearchSelect.forEach((li) => {\r\n    li.addEventListener('click', () => {\r\n        searchSelectSpan.textContent = li.textContent;\r\n        let filterAPI;\r\n\r\n        if(li.textContent == 'All'){\r\n            filterAPI = 'https://restcountries.com/v3.1/all';\r\n        }else{\r\n            filterAPI = `https://restcountries.com/v3.1/region/${li.textContent}`;\r\n        }\r\n\r\n        (0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(filterAPI).then((data) => {\r\n            (0,_updateUI__WEBPACK_IMPORTED_MODULE_0__.createCountries)(data)\r\n        }).catch((err) => {\r\n            alert(err.message)\r\n        });\r\n    })\r\n});\n\n//# sourceURL=webpack://whereintheworld/./src/js/filter.js?");
 
 /***/ }),
@@ -36,6 +37,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _upd
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\nconst loaderEl = document.querySelector('.loader');\r\nconst loaderToggle = (info) => {\r\n    if(info){\r\n        loaderEl.classList.remove('hidden');\r\n    } else {\r\n        loaderEl.classList.add('hidden');\r\n    }\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loaderToggle);\n\n//# sourceURL=webpack://whereintheworld/./src/js/loader.js?");
 
 /***/ }),
@@ -46,7 +48,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ \"./src/js/request.js\");\n/* harmony import */ var _updateUI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateUI */ \"./src/js/updateUI.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter */ \"./src/js/filter.js\");\n\r\n\r\n\r\n\r\n\r\nconst API = 'https://restcountries.com/v3.1/all';\r\n(0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(API).then((data) => {\r\n    (0,_updateUI__WEBPACK_IMPORTED_MODULE_2__.createCountries)(data)\r\n}).catch((err) => {\r\n    alert(err.message);\r\n})\n\n//# sourceURL=webpack://whereintheworld/./src/js/main.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ \"./src/js/request.js\");\n/* harmony import */ var _updateUI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateUI */ \"./src/js/updateUI.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter */ \"./src/js/filter.js\");\n/* harmony import */ var _mode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mode */ \"./src/js/mode.js\");\n/* harmony import */ var _mode__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_mode__WEBPACK_IMPORTED_MODULE_4__);\n\r\n\r\n\r\n\r\n\r\n\r\nconst API = 'https://restcountries.com/v3.1/all';\r\n(0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(API).then((data) => {\r\n    (0,_updateUI__WEBPACK_IMPORTED_MODULE_2__.createCountries)(data)\r\n}).catch((err) => {\r\n    alert(err.message);\r\n})\n\n//# sourceURL=webpack://whereintheworld/./src/js/main.js?");
+
+/***/ }),
+
+/***/ "./src/js/mode.js":
+/*!************************!*\
+  !*** ./src/js/mode.js ***!
+  \************************/
+/***/ (() => {
+
+eval("const modeBtn = document.querySelector('.header__dark-mode');\r\nconst body = document.querySelector('body');\r\nconst modeFromLocal = localStorage.getItem('mode') ? localStorage.getItem('mode'): null;\r\n\r\nif(modeFromLocal){\r\n    body.classList.add('dark-mode');\r\n}\r\n\r\nmodeBtn.addEventListener('click', () => {\r\n    body.classList.toggle('dark-mode');\r\n    modeFromLocal ?  localStorage.setItem('mode', '') : localStorage.setItem('mode', 'dark')\r\n});\n\n//# sourceURL=webpack://whereintheworld/./src/js/mode.js?");
 
 /***/ }),
 
@@ -56,6 +69,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _loader_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loader.js */ \"./src/js/loader.js\");\n\r\nconst request = async (reource) => {\r\n    (0,_loader_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(true);\r\n    const req =  await fetch(reource);\r\n\r\n    if(!req.ok){\r\n        (0,_loader_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(false);\r\n        throw new Error(\"Something went wrong :(\");\r\n    };\r\n\r\n    const data = await req.json();\r\n    (0,_loader_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(false);\r\n    return data;\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (request);\n\n//# sourceURL=webpack://whereintheworld/./src/js/request.js?");
 
 /***/ }),
@@ -66,6 +80,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createCountries: () => (/* binding */ createCountries)\n/* harmony export */ });\nconst cardsEl = document.querySelector('.cards');\r\n\r\nconst createCountries = (countries) => {\r\n    cardsEl.innerHTML = '';\r\n    countries.forEach((country) => {\r\n        const flag = country.flags.svg\r\n        const commonName = country.name.common;\r\n        const population = country.population;\r\n        const region = country.region;\r\n        const capital = country.capital ? country.capital[0] : 'No Capital';\r\n\r\n        // create List items\r\n        const li = document.createElement('li');\r\n        li.classList.add('cards__item');\r\n        li.innerHTML = \r\n        `\r\n        <a href=\"./about.html\">\r\n                <img src=${flag} alt=\"algeria-flag\" width=\"267\" height=\"160\">\r\n                <div class=\"cards__item-inner\">\r\n                    <h3 class=\"cards__title\">${commonName}</h3>\r\n                    <p class=\"population\">Population: <span>${population}</span></p>\r\n                    <p class=\"region\">Region: <span>${region}</span></p>\r\n                    <p class=\"capital\">Capital: <span>${capital}</span></p>\r\n                </div>\r\n        </a>\r\n        `;\r\n        //ul add\r\n        cardsEl.appendChild(li);\r\n    });\r\n};\r\n\r\n/*\r\n<li class=\"cards__item\">\r\n                    <a href=\"./about.html\">\r\n                        <img src=\"./images/jpg/algeria-flag.jpg\" alt=\"algeria-flag\" width=\"267\" height=\"160\">\r\n                        <div class=\"cards__item-inner\">\r\n                            <h3 class=\"cards__title\">Algeria</h3>\r\n                            <p class=\"population\">Population: <span>40,400,000</span></p>\r\n                            <p class=\"region\">Region: <span>Africa</span></p>\r\n                            <p class=\"capital\">Capital: <span>Algiers</span></p>\r\n                        </div>\r\n                    </a>\r\n</li>\r\n*/\n\n//# sourceURL=webpack://whereintheworld/./src/js/updateUI.js?");
 
 /***/ })
@@ -97,6 +112,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
