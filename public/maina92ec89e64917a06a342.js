@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ \"./src/js/request.js\");\n\r\n\r\n\r\nconst API = 'https://restcountries.com/v3.1/all';\r\n(0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(API).then((data) => {\r\n    console.log(data)\r\n}).catch((err) => {\r\n    alert(err.message);\r\n})\n\n//# sourceURL=webpack://whereintheworld/./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ \"./src/js/request.js\");\n/* harmony import */ var _updateUI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateUI */ \"./src/js/updateUI.js\");\n\r\n\r\n\r\n\r\nconst API = 'https://restcountries.com/v3.1/all';\r\n(0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(API).then((data) => {\r\n    (0,_updateUI__WEBPACK_IMPORTED_MODULE_2__.createCountries)(data)\r\n}).catch((err) => {\r\n    alert(err.message);\r\n})\n\n//# sourceURL=webpack://whereintheworld/./src/js/main.js?");
 
 /***/ }),
 
@@ -47,6 +47,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _loader_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loader.js */ \"./src/js/loader.js\");\n\r\nconst request = async (reource) => {\r\n    (0,_loader_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(true);\r\n    const req =  await fetch(reource);\r\n\r\n    if(!req.ok){\r\n        (0,_loader_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(false);\r\n        throw new Error(\"Something went wrong :(\");\r\n    };\r\n\r\n    const data = await req.json();\r\n    (0,_loader_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(false);\r\n    return data;\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (request);\n\n//# sourceURL=webpack://whereintheworld/./src/js/request.js?");
+
+/***/ }),
+
+/***/ "./src/js/updateUI.js":
+/*!****************************!*\
+  !*** ./src/js/updateUI.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createCountries: () => (/* binding */ createCountries)\n/* harmony export */ });\nconst cardsEl = document.querySelector('.cards');\r\n\r\nconst createCountries = (countries) => {\r\n    countries.forEach((country) => {\r\n        const flag = country.flags.svg\r\n        const commonName = country.name.common;\r\n        const population = country.population;\r\n        const region = country.region;\r\n        const capital = country.capital ? country.capital[0] : 'No Capital';\r\n\r\n        // create List items\r\n        const li = document.createElement('li');\r\n        li.classList.add('cards__item');\r\n        li.innerHTML = \r\n        `\r\n        <a href=\"./about.html\">\r\n                <img src=${flag} alt=\"algeria-flag\" width=\"267\" height=\"160\">\r\n                <div class=\"cards__item-inner\">\r\n                    <h3 class=\"cards__title\">${commonName}</h3>\r\n                    <p class=\"population\">Population: <span>${population}</span></p>\r\n                    <p class=\"region\">Region: <span>${region}</span></p>\r\n                    <p class=\"capital\">Capital: <span>${capital}</span></p>\r\n                </div>\r\n        </a>\r\n        `;\r\n        //ul add\r\n        cardsEl.appendChild(li);\r\n    });\r\n};\r\n\r\n/*\r\n<li class=\"cards__item\">\r\n                    <a href=\"./about.html\">\r\n                        <img src=\"./images/jpg/algeria-flag.jpg\" alt=\"algeria-flag\" width=\"267\" height=\"160\">\r\n                        <div class=\"cards__item-inner\">\r\n                            <h3 class=\"cards__title\">Algeria</h3>\r\n                            <p class=\"population\">Population: <span>40,400,000</span></p>\r\n                            <p class=\"region\">Region: <span>Africa</span></p>\r\n                            <p class=\"capital\">Capital: <span>Algiers</span></p>\r\n                        </div>\r\n                    </a>\r\n</li>\r\n*/\n\n//# sourceURL=webpack://whereintheworld/./src/js/updateUI.js?");
 
 /***/ })
 
